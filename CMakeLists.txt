@@ -15,18 +15,18 @@ list(
     # Always necessary, because otherwise closure compile may mangle module name If
     # with modularize module will be function, which will not be mangled.
     -sMODULARIZE=1
-    #-sEXPORTED_RUNTIME_METHODS=['EGL']
     -sEXPORT_NAME=createNonceModule
     -sWASM=1
-    # Enable threads and set pool size
+    # Enable threads and set pool size to maximum
     -sUSE_PTHREADS=1
-    -sPTHREAD_POOL_SIZE=4
+    -sPTHREAD_POOL_SIZE=navigator.hardwareConcurrency
+    -sENVIRONMENT=web,worker
     # Grow WASM memory on demand.
     -sALLOW_MEMORY_GROWTH=1
     -sLLD_REPORT_UNDEFINED
     # No entry point(main function)
     --no-entry
-    -sALLOW_BLOCKING_ON_MAIN_THREAD=1
+    -sALLOW_BLOCKING_ON_MAIN_THREAD=0
     # Disable useless warning about pthreads + memory growth being slow in some cases for JS.
     -Wno-pthreads-mem-growth
 )

@@ -13,4 +13,4 @@ mkdir -p build dist \
 && cd build \
 && emcmake cmake ../ \
 && make \
-&& cd ../ \
+&& cd ../

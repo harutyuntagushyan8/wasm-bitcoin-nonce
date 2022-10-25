@@ -1,10 +1,5 @@
 #include "sha2.h"
 
-// big endian architectures need #define __BYTE_ORDER __BIG_ENDIAN
-#ifndef _MSC_VER
-#include <endian.h>
-#endif
-
 // same as reset()
 SHA256::SHA256()
 {
@@ -86,11 +81,8 @@ void SHA256::processBlock(const void* data)
   uint32_t words[64];
   int i;
   for (i = 0; i < 16; i++)
-#if defined(__BYTE_ORDER) && (__BYTE_ORDER != 0) && (__BYTE_ORDER == __BIG_ENDIAN)
-    words[i] =      input[i];
-#else
+    // Assume we are on little-endian system
     words[i] = swap(input[i]);
-#endif
 
   uint32_t x,y; // temporaries
 

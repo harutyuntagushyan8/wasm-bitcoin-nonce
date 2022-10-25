@@ -2,17 +2,7 @@
 #define SHA2_H
 
 #include <string>
-
-// define fixed size integer types
-#ifdef _MSC_VER
-// Windows
-typedef unsigned __int8  uint8_t;
-typedef unsigned __int32 uint32_t;
-typedef unsigned __int64 uint64_t;
-#else
-// GCC
 #include <cstdint>
-#endif
 
 class SHA256 //: public Hash
 {
@@ -56,4 +46,5 @@ private:
   // hash, stored as integers
   uint32_t m_hash[HashValues];
 };
+
 #endif // SHA2_H
