@@ -9,12 +9,8 @@ cd emsdk/ \
 && cd ../ \
 
 # Run Cmake
-mkdir build dist \
+mkdir -p build dist \
 && cd build \
 && emcmake cmake ../ \
 && make \
 && cd ../ \
-
-# Run server
-cd server \
-node index.js
