@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span id="counter"></span>
+    Hello world
+</body>
+<script>
+    (async function() {
+    Module['onRuntimeInitialized'] = () => {
+        (async function() {
+            
+            //const test = Module.test();
+            //console.log("After test function call");
+            //console.log(test);
+            
+            // console.log("Before 1-st test function call");
+            // console.log(await Module.test1());
+            // console.log("After 1-st test function call");
+            // console.log("Before 2-st test function call");
+            // console.log(await Module.test2());
+            // console.log("After 2-st test function call");
+            //console.log(await Promise.all([Module.test1(), Module.test2()]));
+            console.log("After all await tests");
+        })();
+    };
+</script>
+</html>
